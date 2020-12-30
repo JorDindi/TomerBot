@@ -4,15 +4,15 @@ const ytSearch = require('yt-search');
 module.exports = {
     name: 'play',
     description: 'Joins and plays a video from youtube',
-    async execute(message,args){
+    async execute(message,args, Discord){
 
         const voiceChannel = message.member.voice.channel;
 
-        if(!voiceChannel) return message.channel.send('You need to be in a voice channel to execute this command!');
+        if(!voiceChannel) return message.channel.send('אל תצא/י בגט, תכנס לשיחה קודם ואחרי זה תשים מוזיקה');
         const permissions = voiceChannel.permissionsFor(message.client.user);
-        if(!permissions.has('CONNECT')) return message.channel.send('You dont have to correct permissions!');
-        if(!permissions.has('SPEAK')) return message.channel.send('You dont have to correct permissions!');
-        if(!args.length) return message.channel.send('Please specifiy a link or a song name!');
+        if(!permissions.has('CONNECT')) return message.channel.send('אין לך הרשאות!');
+        if(!permissions.has('SPEAK')) return message.channel.send('אין לך הרשאות!');
+        if(!args.length) return message.channel.send('אל תצא/י פיתה, שים/י לינק או שם של שיר');
 
 
         const connection = await voiceChannel.join();
@@ -34,8 +34,19 @@ module.exports = {
                 voiceChannel.leave();
             });
 
-            await message.reply(`:thumbsup: Now Playing ***${video.title}***`);
+            const playEmbed = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+        	.setTitle(`${video.title}`)
+        	.setURL(video.url)
+        	.setDescription('מריץ שיר מה אתה קופץ')
+        	.setThumbnail(`${video.thumbnail}`)
+        	.addFields(
+        		{ name: 'אורך השיר', value: `${video.duration}`, inline: true },
+	        )
+	        .setTimestamp()
+	        .setFooter('Tomer Bot by Dor Yahav', 'https://imgur.com/Wvhbq6N');
 
+            await message.reply(playEmbed);
         }
     }
 }

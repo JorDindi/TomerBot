@@ -7,6 +7,8 @@ const prefix = '^';
 const fs = require('fs');
 const { type } = require('os');
 
+const queue = new Map();
+
 
 client.commands = new Discord.Collection();
 
@@ -21,7 +23,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Tomer is online!');
-    client.user.setActivity('^joke', {type: "LISTENING"});
+    client.user.setActivity('^help', {type: "LISTENING"});
 });
 
 
@@ -35,11 +37,17 @@ client.on('message', message => {
     if(command === 'joke'){
         client.commands.get('joke').execute(message,args,Discord);
     }else if(command === 'play'){
-        client.commands.get('play').execute(message,args);
+        client.commands.get('play').execute(message,args, Discord);
     }else if(command === 'leave'){
-        client.commands.get('leave').execute(message,args);
+        client.commands.get('leave').execute(message,args, Discord);
+    }else if(command === 'l'){
+        client.commands.get('leave').execute(message,args, Discord);
+    }else if(command === 'p'){
+        client.commands.get('play').execute(message,args, Discord);
+    }else if(command === 'help'){
+        client.commands.get('help').execute(message,args,Discord);
     }
 });
 
 
-client.login(process.env.token);
+client.login('NzkzMTQwNDQ4MDg3NTA2OTk0.X-n7mg.IaTSi2PdEPuh46beiIsxR-9y1dY');
