@@ -75,3 +75,8 @@ jspm_packages
 
 # Heroku Env
 .env
+
+# Discord.js Env
+config
+node_modules
+package-lock.json
