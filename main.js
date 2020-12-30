@@ -37,7 +37,7 @@ client.on('message', message => {
     }else if(command === 'play'){
         client.commands.get('play').execute(message,args);
     }else if(command === 'leave'){
-        client.commands.get('leave').execute(message,args);
+        client.commands.get('leave').execute(message,args);s
     }
 });
 
