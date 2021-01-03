@@ -47,6 +47,8 @@ client.on('message', message => {
         client.commands.get('reactionrolegames').execute(message, args, Discord, client);
     }else if(command ==='pause'){
         client.commands.get('pause').execute(client,message,args);
+    }else if(command === 'bread'){
+        client.commands.get('bread').execute(message,args,Discord,client);
     }
 });
 
