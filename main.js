@@ -48,9 +48,9 @@ client.on('message', message => {
     }else if(command ==='pause'){
         client.commands.get('pause').execute(client,message,args);
     }else if(command === 'bread'){
-        client.commands.get('bread').execute(message,args,Discord,client);
+        client.commands.get('bread').execute(message, args, Discord, client);
     }
 });
 
 
-client.login(process.env.token);
+client.login('NzkzMTQwNDQ4MDg3NTA2OTk0.X-n7mg.LjsjtTa-rPTs2fjs9FR8n-J_TWs');
