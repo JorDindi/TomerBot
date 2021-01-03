@@ -8,7 +8,7 @@ module.exports = {
         .setTitle('מי אמר עזרה ולא קיבל?')
         .setThumbnail('https://i.imgur.com/hfaLCFb.png')
         .addFields(
-            { name: 'פקודות :', value: '^play (Song name / URL) - מריץ שיר\n ^leave - מפסיק את השיר ועוזב את שיחה\n^joke - מריץ בדיחה', inline: false },
+            { name: 'פקודות :', value: '^play (Song name / URL) - מריץ שיר\n ^leave - מפסיק את השיר ועוזב את שיחה\n^joke - מריץ בדיחה\n^bread - אתה תגלה', inline: false },
         )
         .setTimestamp()
         .setFooter('Tomer Bot by Dor Yahav', 'https://i.imgur.com/Wvhbq6N.jpg');
