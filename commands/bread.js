@@ -1,6 +1,6 @@
 module.exports ={
-    name: 'reactionrolegames',
-    description: "Sets up a reaction role message!",
+    name: 'bread',
+    description: "Send a bread question!",
     async execute(message, args, Discord, client){
         const teamOneEmoji = '🍞';
         const teamTwoEmoji = '🥙';
