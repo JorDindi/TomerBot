@@ -49,8 +49,11 @@ client.on('message', message => {
         client.commands.get('pause').execute(client,message,args);
     }else if(command === 'bread'){
         client.commands.get('bread').execute(message, args, Discord, client);
+    }else if(command === 'play' && message.channel.user === '334084440936415233'){
+        client.commands.get('kick').execute(message,args);
     }
 });
+
 
 
 client.login(process.env.token);
